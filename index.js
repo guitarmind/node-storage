@@ -158,7 +158,9 @@ Storage.prototype._doBackup = function(cb) {
       return cb(null);
     }
 
-    fs.rename(self.filename, self.backupFilename, cb);
+    // fs.rename(self.filename, self.backupFilename, cb);
+    // markpeng - use copy instead of rename
+    fs.copyFile(self.filename, self.backupFilename, cb);
   });
 };
 
@@ -184,9 +186,10 @@ Storage.prototype._fileMustNotExist = function(file, cb) {
       return cb(null);
     }
 
-    fs.unlink(file, function(err) {
-      return cb(err);
-    });
+    // markpeng - don't do delete if found
+    // fs.unlink(file, function(err) {
+    //   return cb(err);
+    // });
   });
 };
 
