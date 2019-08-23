@@ -14,7 +14,7 @@
     "datastore",
     "embedded"
   ],
-  "author": "Mark Peng",
+  "author": "Antony Mativos <amativos@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "mkdirp": "^0.5.0",
