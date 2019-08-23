@@ -114,12 +114,12 @@ Storage.prototype._persist = function(cb) {
   var _data = JSON.stringify(self.store);
 
   async.series([
-    async.apply(self._fileMustNotExist, self.tempFilename),
-    async.apply(self._fileMustNotExist, self.backupFilename),
+    // async.apply(self._fileMustNotExist, self.tempFilename),
+    // async.apply(self._fileMustNotExist, self.backupFilename),
     async.apply(self._doBackup.bind(self)),
     async.apply(self.writeData, self.tempFilename, _data),
     async.apply(fs.rename, self.tempFilename, self.filename),
-    async.apply(self._fileMustNotExist, self.backupFilename)
+    // async.apply(self._fileMustNotExist, self.backupFilename)
   ], cb);
 };
 
