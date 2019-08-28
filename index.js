@@ -117,8 +117,9 @@ Storage.prototype._persist = function(cb) {
     // async.apply(self._fileMustNotExist, self.tempFilename),
     // async.apply(self._fileMustNotExist, self.backupFilename),
     async.apply(self._doBackup.bind(self)),
-    async.apply(self.writeData, self.tempFilename, _data),
-    async.apply(fs.rename, self.tempFilename, self.filename),
+    async.apply(self.writeData, self.filename, _data),
+    // async.apply(self.writeData, self.tempFilename, _data),
+    // async.apply(fs.rename, self.tempFilename, self.filename),
     // async.apply(self._fileMustNotExist, self.backupFilename)
   ], cb);
 };
